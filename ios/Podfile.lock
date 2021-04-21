@@ -1,0 +1,25 @@
+PODS:
+  - React (0.11.0):
+    - React/Core (= 0.11.0)
+  - react-native-sqlite-storage (5.0.0):
+    - React
+  - React/Core (0.11.0)
+
+DEPENDENCIES:
+  - react-native-sqlite-storage (from `../node_modules/react-native-sqlite-storage`)
+
+SPEC REPOS:
+  trunk:
+    - React
+
+EXTERNAL SOURCES:
+  react-native-sqlite-storage:
+    :path: "../node_modules/react-native-sqlite-storage"
+
+SPEC CHECKSUMS:
+  React: ab1a2e21deb34965c38328d5ec40cc7d12c6050a
+  react-native-sqlite-storage: 418ef4afc5e6df6ce3574c4617e5f0b65cffde55
+
+PODFILE CHECKSUM: d51480a73946b7cd1dba228eaf5f7aa91ebf82b1
+
+COCOAPODS: 1.10.1
