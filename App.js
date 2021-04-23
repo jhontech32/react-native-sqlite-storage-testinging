@@ -1,51 +1,60 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   View,
   Text,
   StyleSheet,
-  Button
+  Button,
+  Alert,
+  ScrollView
 } from 'react-native'
 
-import SQLite from 'react-native-sqlite-storage'
+import { openDatabase } from 'react-native-sqlite-storage'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
+    paddingVertical: 10
   },
   userContainer: {
     flexDirection: 'row'
   },
   userInfo: {
-    padding: 10
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    paddingTop: 10
   }
 })
 
+// global.db = SQLite.openDatabase(
+//   {
+//     name: 'LuckyDB2.sqlite',
+//     createFromLocation: '~www/LuckyDB.sqlite'
+//   },
+//   () => { alert('success') },
+//   error => {
+//     console.log(error)
+//   }
+// )
+
+const db = openDatabase({ name: 'user_db.db', createFromLocation: 1 })
+
 class App extends Component {
   state = {
-    db: SQLite.openDatabase(
-      {
-        name: 'TestDB.db',
-        // location: 'default',
-        createFromLocation: '~www/TestDB.db',
-      },
-      () => { },
-      error => {
-        console.log(error);
-      }
-    ),
     users: []
   }
 
+
   componentDidMount () {
     this.getQuery()
-    this.insertQuery()
+    // this.insertQuery()
+    this.updateQuery()
+    // this.deleteQuery()
   }
 
   // componentWillUnmount () {
-  //   const { db } = this.state
   //   db.close()
   // }
 
@@ -54,23 +63,17 @@ class App extends Component {
 
   //   db.transaction((trans) => {
   //     trans.executeSql(sql, params, (trans, results) => {
-  //       resolve(results);
+  //       resolve(results) 
   //     },
   //       (error) => {
-  //         reject(error);
+  //         reject(error) 
   //       })
   //   })
   // })
 
-  getQuery = async () => {
-    const { db } = this.state
-    console.log('dbx', db)
-
+  getQuery = () => new Promise(() => {
     db.transaction(tx => {
-      tx.executeSql('SELECT * FROM test', [], (tx, results) => {
-        console.log('tx', tx)
-        console.log('results', results.rows.item(2))
-
+      tx.executeSql('SELECT * FROM tbl_user', [], (_tx, results) => {
         const rows = results.rows
         let users = []
 
@@ -80,30 +83,81 @@ class App extends Component {
             ...rows.item(index)
           })
         ))
+        console.log('==========> users let', users)
         this.setState({ users })
       })
     })
-  }
+  })
 
-  insertQuery = async () => {
-    const { db } = this.state
 
-    let Data = {
-      id: 7,
-      name: "Jhon Doe",
+  insertQuery = () => new Promise(() => {
+    let dataku = {
+      name: "Kimon",
       age: "22",
-      email: "jhondoe@gmail.com"
+      email: "jhondoe323232@gmail.com"
     }
 
     db.transaction((tx) => {
-      tx.executeSql('INSERT INTO test (id, name, age, email) VALUES', [Data.id, Data.name, Data.age, Data.email]).then(([tx, results]) => {
-        resolve(results)
-        console.log('tx', tx)
-        console.log('results', results)
-      })
-      this.setState({ users: results })
+      tx.executeSql('INSERT INTO tbl_user (name, age, email) VALUES (?, ?, ?)', [dataku.name, dataku.age, dataku.email]),
+        (_tx, results) => {
+          console.log('Results', results.rowsAffected)
+          if (results.rowsAffected > 0) {
+            Alert.alert(
+              'Success',
+              'You are Registered Successfully',
+              [
+                {
+                  text: 'Ok',
+                  onPress: () => navigation.navigate('HomeScreen'),
+                },
+              ],
+              { cancelable: false },
+            )
+          } else alert('Registration Failed')
+        }
+      // this.setState({ users: results })
     })
-  }
+  })
+
+  updateQuery = () => new Promise(() => {
+    let dataku = {
+      name: 'yamato2',
+      age: '29',
+      email: 'yamat2o@mail.com'
+    }
+
+    db.transaction((tx) => {
+      tx.executeSql(
+        'UPDATE tbl_user SET name=?, age=?, email=? WHERE id = ?',
+        [dataku.name, dataku.age, dataku.email, 1],
+        (tx, results) => {
+          results.rows.length
+        },
+      )
+    })
+  })
+
+  deleteQuery = () => new Promise(() => {
+    db.transaction((tx) => {
+      tx.executeSql('DELETE FROM tbl_user WHERE id=?', [16], (_tx, results) => {
+        resolve(results)
+        console.log('Results', results.rowsAffected)
+        if (results.rowsAffected > 0) {
+          Alert.alert(
+            'Success',
+            'User deleted Successfully',
+            [
+              {
+                text: 'Ok',
+                onPress: () => navigation.navigate('HomeScreen'),
+              },
+            ],
+            { cancelable: false },
+          )
+        } else alert('Registration Failed')
+      })
+    })
+  })
 
   render () {
     const { users } = this.state
@@ -112,18 +166,20 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <Button
-          title="Sync Data"
+          title="Sync Newest Data Now"
           onPress={() => this.getQuery()}
         />
 
-        {
-          users.map((item, index) => (
-            <View key={index} style={styles.userContainer}>
-              <Text style={styles.userInfo}>{item.name}</Text>
-              <Text style={styles.userInfo}>{item.email}</Text>
-            </View>
-          ))
-        }
+        <ScrollView>
+          {
+            users.map((item, index) => (
+              <View key={index} style={styles.userContainer}>
+                <Text style={styles.userInfo}>{item.name}</Text>
+                <Text style={styles.userInfo}>{item.email}</Text>
+              </View>
+            ))
+          }
+        </ScrollView>
       </View>
     )
   }
