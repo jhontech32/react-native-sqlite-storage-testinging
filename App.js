@@ -49,8 +49,8 @@ class App extends Component {
 
   componentDidMount () {
     this.getQuery()
-    // this.insertQuery()
-    this.updateQuery()
+    this.insertQuery()
+    // this.updateQuery()
     // this.deleteQuery()
   }
 

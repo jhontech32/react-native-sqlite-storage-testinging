@@ -18,6 +18,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* reactnativesqlitestoragetestingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* reactnativesqlitestoragetestingTests.m */; };
 		3071F56343E867A3D509B782 /* libPods-reactnativesqlitestoragetesting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16D95A3ABDC27165EAB404 /* libPods-reactnativesqlitestoragetesting.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		88A6F4D126326FF000B9194B /* www in Resources */ = {isa = PBXBuildFile; fileRef = 88A6F4D026326FF000B9194B /* www */; };
 		BF2F8190C51213DA8A03CD7E /* libPods-reactnativesqlitestoragetesting-reactnativesqlitestoragetestingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9A84FCB4143E5DFEBE952B /* libPods-reactnativesqlitestoragetesting-reactnativesqlitestoragetestingTests.a */; };
 		C1ADF86DC9D18CB5C0766CF8 /* libPods-reactnativesqlitestoragetesting-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA22A51E830B74BC6A3E5D51 /* libPods-reactnativesqlitestoragetesting-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		6FAE8492AA64822C7B5D6B1A /* libPods-reactnativesqlitestoragetesting-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reactnativesqlitestoragetesting-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C16D95A3ABDC27165EAB404 /* libPods-reactnativesqlitestoragetesting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reactnativesqlitestoragetesting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = reactnativesqlitestoragetesting/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88A6F4D026326FF000B9194B /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../www; sourceTree = "<group>"; };
 		BE9A84FCB4143E5DFEBE952B /* libPods-reactnativesqlitestoragetesting-reactnativesqlitestoragetestingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reactnativesqlitestoragetesting-reactnativesqlitestoragetestingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B5A6724D0FFDD7D4143F91 /* Pods-reactnativesqlitestoragetesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnativesqlitestoragetesting.release.xcconfig"; path = "Target Support Files/Pods-reactnativesqlitestoragetesting/Pods-reactnativesqlitestoragetesting.release.xcconfig"; sourceTree = "<group>"; };
 		C7715C242557472BB5CD81A3 /* Pods-reactnativesqlitestoragetesting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnativesqlitestoragetesting.debug.xcconfig"; path = "Target Support Files/Pods-reactnativesqlitestoragetesting/Pods-reactnativesqlitestoragetesting.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* reactnativesqlitestoragetesting */ = {
 			isa = PBXGroup;
 			children = (
+				88A6F4D026326FF000B9194B /* www */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -194,7 +197,6 @@
 				EDAE0C0E8A09BCDBB51CDED0 /* Pods-reactnativesqlitestoragetesting-tvOSTests.debug.xcconfig */,
 				046E0E93318BF438B38B60E2 /* Pods-reactnativesqlitestoragetesting-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -209,7 +211,6 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				4ABD7B6B79FF7CC20B30C45E /* [CP] Embed Pods Frameworks */,
 				ABB25A36B8D7EB3FCA536B1C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -232,7 +233,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				54243CE18D46DF7A1938CC9C /* [CP] Embed Pods Frameworks */,
 				7081911079CDAD19C75E5AD7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -342,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A6F4D126326FF000B9194B /* www in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -457,42 +458,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4ABD7B6B79FF7CC20B30C45E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativesqlitestoragetesting-reactnativesqlitestoragetestingTests/Pods-reactnativesqlitestoragetesting-reactnativesqlitestoragetestingTests-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactnativesqlitestoragetesting-reactnativesqlitestoragetestingTests/Pods-reactnativesqlitestoragetesting-reactnativesqlitestoragetestingTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		54243CE18D46DF7A1938CC9C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativesqlitestoragetesting/Pods-reactnativesqlitestoragetesting-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactnativesqlitestoragetesting/Pods-reactnativesqlitestoragetesting-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7081911079CDAD19C75E5AD7 /* [CP] Copy Pods Resources */ = {
