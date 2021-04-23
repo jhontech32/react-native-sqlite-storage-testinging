@@ -4,10 +4,9 @@ This project sample for using SQLite storage native to your react native project
 
 ========================================================================
 
-Feature : 
+Note : 
 * CRUD ( Create, Read, Update, Delete )
-* Sudah sukses CRUD tanpa ada ERROR
-
+* Location local database => android/app/src/main/assets/www/user_db.db
 
 HOW TO USE :
 * Git Pull
@@ -22,6 +21,6 @@ HOW TO USE :
 
 ========================================================================
 
-Feel free to learn or revision my code if wrong.
+Feel free to learn or revision my code if wrong, but for now everything is going well.
 
 Happy Coding.
