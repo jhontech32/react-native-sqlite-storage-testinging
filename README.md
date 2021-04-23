@@ -17,6 +17,8 @@ HOW TO USE :
 * next build for release version => ./gradlew installRelease
 * npm / yarn start
 
+ANDROID : ✅,
+iOS : ✅,
 
 
 ========================================================================
